@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: log-output
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: log-output
+  template:
+    metadata:
+      labels:
+        app: log-output
+    spec:
+      containers:
+        - name: writer
+          image: razibhasan2/log-writer:1.0.1
+          env:
+            - name: ENVIRONMENT
+              value: production
+            - name: BACKUP_ENABLED
+              value: "true"
+          volumeMounts:
+            - name: shared-storage
+              mountPath: /usr/src/app/shared
+
+        - name: reader
+          image: razibhasan2/log-reader:1.16
+          env:
+            - name: ENVIRONMENT
+              value: production
+            - name: BACKUP_ENABLED
+              value: "true"
+          ports:
+            - containerPort: 3000
+
+      volumes:
+        - name: shared-storage
+          emptyDir: {}
