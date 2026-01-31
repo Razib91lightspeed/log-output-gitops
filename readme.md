@@ -34,6 +34,6 @@ log-output-gitops/
 
 ## Proof screenshots
 
-![Proof 1](images/ex4.10.1.jpeg)
+![Proof 1](images/Ex4.10.1.jpeg)
 ![Proof 2](images/ex4.10.2.jpeg)
 # End
