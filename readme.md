@@ -15,7 +15,7 @@ Images with markings:
 
 ---
 
-# Directly Used (circled)
+# Directly Used (But not all circled)
 
 These are tools/services I personally configured, deployed, or wrote code for.
 
